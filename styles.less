@@ -1,0 +1,1925 @@
+@backgroundColor: #3FB5E0;
+@navbarBG: #712EFF;
+@badge-orange: #E06A3F;
+@bodyColor: #1f5569;
+@newsColor: #006ED4;
+
+* {
+	transition: all 300ms linear;
+}
+
+body {
+	background: @backgroundColor;
+
+	// Border
+	@media (min-width: 969px) {
+		border: 10px solid white;
+		max-width: 100%;
+
+		.popup-container {
+			margin-left: -10px;
+		}
+
+		.group-1 {
+			overflow: hidden; // grid
+		}
+	}
+}
+
+// Mobile: 
+// 320px - 767px
+
+.tablet-element,
+.large-element,
+.inline-navigation,
+.large-image-container,
+.large-gradient-container {
+	display: none;
+}
+
+// Navbar / Modal Navigation
+.section-0 {	
+	background: @navbarBG;
+	display: flex;
+	justify-content: space-between;
+
+	.main-nav-container {
+		display: flex;
+    justify-content: space-between;
+    align-items: center;
+		width: 70%;
+
+		.navbar-brand {
+			padding-left: 1rem;
+			
+			.logo svg {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	
+		button {
+			box-shadow: none;
+
+			svg {
+				width: 35px;
+				height: 35px;
+				fill: white;
+			}
+		}
+			
+		// Social Media Icons in Inline Nav
+		> .inline-navigation {
+
+			.navbar-nav {
+
+				.icon {
+					display: none !important;
+
+					svg {
+						color: white;
+					}
+				}
+			}
+
+			@media (min-width: 1180px) {
+				
+				.navbar-nav {
+					width: 650px !important;
+
+					.icon {
+						display: block !important;
+					}
+				}
+			}
+		}
+	}
+
+	.nav-donate {
+		background: @backgroundColor;
+		width: 30%;
+		height: 60px;
+		text-align: center;
+		
+		&:hover {
+			background: @bodyColor;
+		}
+
+		a {
+			line-height: 60px;
+			display: block;
+			color: white;
+			font-weight: 700;
+			text-decoration: none;
+		}
+	}
+
+	.modal-dialog {
+		margin: 0;
+		border: none;
+	}
+
+	.modal-content {
+		border: none;
+		border-radius: 0;
+		width: 100vw;
+	}
+	
+	.modal-header {
+		background: @backgroundColor;
+		border: none;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		padding: 0 0 0 0;
+		height: 0;
+		z-index: 1;
+
+		.close {
+			color: white;
+			font-size: 2rem;
+			text-shadow: none;
+			opacity: 1;
+			margin: 0 0 0 auto;
+			padding: 1rem 1.5rem;
+		}
+	}
+	
+	.modal-body {
+		background: @backgroundColor;
+		border: none;
+		padding: 0 0 0 0;
+    position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: 10px solid white;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+		nav {
+      
+			.navbar-nav {
+        margin: 0 auto;
+				font-weight: 700;
+				font-size: 32px;
+				text-align: center;
+				text-transform: uppercase;
+
+				.menu-logo {
+						width: 75px;
+						margin: 0 auto;
+						padding: 1rem 0;
+				}
+
+				.nav-item {
+					line-height: 2.75rem;
+
+					.nav-link {
+						color: white;
+						padding-top: 0;
+						padding-bottom: 0;
+					}
+					
+					.disabled {
+						opacity: 0.5;
+					}
+
+					.cta-button {
+						margin: 0 auto;
+						
+						.btn {
+							margin-top: 1rem;
+
+							.badge {
+								font-size: 1.5rem;
+								line-height: 44px;
+								text-transform: capitalize;
+							}
+
+							.badge-orange {
+								background-color: @badge-orange;
+								width: 245px;
+								height: 60px;
+								color: white;
+							}
+						}
+					}
+				}		
+			}
+		}
+	}
+}
+
+// Component: Social Media Icons
+.social-media-icons-container {
+
+	.list-group {
+		justify-content: center;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		margin-top: 0.5rem;
+
+		.list-group-item {
+			border: none;
+			background: none;
+			border-radius: none;
+			opacity: 1;
+			padding-left: 0.75rem;
+			padding-right: 0.75rem;
+
+			svg {
+				transform: scale(1.3);
+			}
+		}
+	}
+
+	.list-group-horizontal {
+		border-radius: none;
+	}
+}
+
+// Component: Button CTA
+.cta-button {
+  width: min-content;
+
+	.btn {
+		width: 100%;
+		max-width: 500px;
+		min-width: 300px;
+		display: flex;
+		align-items: center;
+    justify-content: center;
+		padding-right: 0;
+		padding-left: 0;
+		font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+
+		&:hover {
+
+			svg {
+				transform: translate3d(7px, 0, 0);
+				transition: all 600ms cubic-bezier(.36, -1.63, .27,1.55);
+			}
+		}
+
+		.badge {
+			font-size: 16px;
+			text-transform: uppercase;
+			width: 100%;
+			height: 3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.badge-orange {
+			background-color: @badge-orange;
+			color: white;
+		}
+		
+		.badge-outline {
+			background-color: #fff;
+			border: 3px solid #3FB5E0;
+		}
+		
+		.badge-purple {
+			background-color: @navbarBG;
+			border: 3px solid @navbarBG;
+			color: white;
+			font-weight: 400;
+		}
+	}
+}
+
+// Jumbotron / Sign Up Fields (Section 1)
+// Volunteer Input Fields (Section 10)
+.section-1, .section-10 {
+	max-width: 767px;
+  margin: 0 auto;
+
+	.content-container {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+
+		.main-image-container {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin-bottom: -2.5rem;
+		}
+		
+		.main-image {
+			min-width: 320px;
+			min-height: 376px;
+			width: 100%;
+			background-image: linear-gradient(to bottom, rgba(63,181,224,0) 0%,rgba(63,181,224,0.14) 50%,rgba(63,181,224,1) 95%), url('images/jumbotron/sm-@2x.jpg');
+			background-size: cover;
+			background-position: 50% 35%;
+			background-repeat: no-repeat;
+		}
+	
+		.sub-section {
+			width: 65%;
+			display: flex;
+			justify-content: center;
+
+			svg {
+				max-width: 500px;
+				min-width: 300px;
+				width: 100%;
+				height: 100%;
+				max-height: 400px;
+				min-height: 0px;
+			}
+		}
+	
+		.sign-up-container {
+			width: 65%;
+			margin: 2rem auto;
+	
+			.content-container {
+
+				.input-group {
+					max-width: 500px;
+					min-width: 300px;
+
+					.form-control {
+						border-radius: 0;
+						border: none;
+						width: 70%;
+						height: 3rem;
+					}
+					
+					::placeholder {
+						color: #9E9E9E;
+						font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+						font-size: 16px;
+						font-weight: 400;
+					}
+					
+					.zip {
+						width: 30%;
+						border-left: 1px solid rgba(0,0,0, 0.1);
+					}
+				}
+			}
+		}
+	}
+}
+
+// Intro / Why I'm Running (Section 2)
+// Volunteer Today (Section 8)
+// The Latest / Twitter Feed (Section 9)
+.section-2, .section-8, .section-9 {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding: 4.5rem 2rem;
+
+	.content-container {
+		width: 100%;
+		max-width: 500px;
+
+		h1 {
+			font-family: 'Francois One', Arial, Helvetica, sans-serif;
+			font-size: 36px;
+			color: @backgroundColor;
+		}
+
+		p {
+			font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+			color: @bodyColor;
+			font-size: 17px;
+		}
+	}
+
+	.cta-button {
+		margin-top: 1.5rem;
+
+		.btn {
+      width: 100%;
+      max-width: 250px;
+			min-width: 100px;
+
+      .badge-outline {
+        padding: 1.5rem 1rem;
+        font-weight: 400;
+        justify-content: space-around;
+      }
+    } 
+	}
+}
+
+// Watch Video
+.section-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  .content-container {
+    width: 100%;
+    height: 366px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    align-items: flex-end;
+    
+    .image-container {
+      height: 366px;
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 1;
+
+      .image {
+        height: 100%;
+
+        img {
+          width: 100%;
+          min-width: 320px;
+          height: 366px;
+          object-fit: cover;
+					object-position: 50% 30%;
+        }
+
+        &:after {
+          position: relative;
+          display: flex;
+          width: 100%;
+          height: 366px;
+          bottom: 366px;
+          content: "";
+          z-index: 1000;
+          background-image: linear-gradient(to bottom,rgba(63,181,224,0) 50%,rgba(63,181,224,1) 100%);
+        } 
+      }
+    }
+
+    .sub-section {
+      display: flex;
+      width: 100%;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: flex-start;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+      z-index: 1000;
+      padding: 1rem 0 2rem 2rem;
+
+      .play-button {
+				padding: 0 1rem 0 0;
+				cursor: pointer;
+
+        &:hover {
+					animation-name: bouncy;
+					animation-duration: 2s;
+					animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+					animation-delay: 0;
+					animation-fill-mode: backwards;
+					animation-iteration-count: infinite;
+					transition: all 0.5s linear;
+				
+					@keyframes bouncy {
+						0% {
+							transform: scale(1);
+						} 
+						
+						50% {
+							transform: scale(1.15);
+						}
+
+						100% {
+							transform: scale(1);
+						}
+					}	
+				}
+
+        svg {
+          fill: #fff;
+          width: 140px;
+          height: 140px;
+        }
+      }
+
+      .text {
+        width: min-content;
+
+        h2 {
+          color: white;
+          font-size: 30px;
+          font-family: 'Francois One', Arial, Helvetica, sans-serif;
+        }
+      }
+    }
+  }
+}
+
+// Donation Buttons
+.section-4 {
+	background-color: @backgroundColor;
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: center;
+  padding: 4.5rem 2rem;
+  color: white;
+
+  .content-container {
+    max-width: 500px;
+    width: 100%;
+
+    h2 {
+      font-size: 45px;
+			font-family: "Francois One", Arial, Helvetica, sans-serif;
+    }
+
+    p {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  .donate-button-container {
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+
+    ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 5px;
+      padding-inline-start: 0;
+
+      li {
+        background-color: @badge-orange;
+        padding: 1rem 0;
+        font-size: 18px;
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+				text-align: center;
+
+					&:hover {
+						background-color: white;
+						color: @bodyColor;
+						cursor: pointer;
+					}
+
+        span {
+          padding-right: 2px;
+          font-size: 1.25rem;
+        }
+
+        &:last-child {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: @backgroundColor;
+          border: 3px solid @badge-orange;
+          padding: 0;
+					line-height: 1rem;
+					
+						&:hover {
+							border-color: white;	
+						}
+          
+          span {
+            font-size: 1rem;
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      font-size: 10px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.75);
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Photos with Fixed Height
+.section-5, .section-7, .section-11 {
+
+  .image-container {
+
+    .image {
+      min-width: 320px;
+      height: 320px;
+      display: flex;
+
+      img {
+        object-fit: cover;
+        object-position: 50% 30%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// News and Press
+.section-6 {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding: 3rem 2rem;
+
+  .content-container {
+    width: 100%;
+    max-width: 500px;
+
+    .heading {
+
+      h2 {
+        font-family: 'Francois One', Arial, Helvetica, sans-serif;
+        font-size: 36px;
+        color: @newsColor;
+      }
+    }
+
+    .news-feed-container {
+
+      .news-item {
+				padding: 2rem 0;
+				border-bottom: 1px solid #999;
+
+        .date {
+          font-size: 12px;
+          color: @newsColor;
+          display: flex;
+					flex-direction: row;
+          
+          p {
+            &:last-child {
+							text-transform: uppercase;
+							padding-left: 3px;
+            }
+          }
+        }
+        
+
+        h3 {
+          color: @newsColor;
+        }
+
+        h4 {
+          font-size: 16px;
+          font-family: 'Montserrat';
+          font-weight: 300;
+
+          &:after {
+            content: ' ...';
+          }
+        }
+
+				&:last-child {
+					border: none;
+				}
+      }
+    }
+  }
+}
+
+// The Latest / Twitter Feed
+.section-9 {
+	background-color: @backgroundColor;
+
+	.content-container {
+
+		h1, p {
+			color: white;
+		}
+
+		p {
+			font-size: 18px;
+		}
+
+		.cta-button {
+
+			&:hover {
+
+				svg {
+					transform: translate3d(7px, 0, 0);
+					transition: all 600ms cubic-bezier(.36, -1.63, .27,1.55);
+				}
+			}
+
+			.badge {
+				padding: 0 1.5rem;
+			}
+		}
+	}
+	
+	.social-media-feed-container {
+		width: 100%;
+		max-width: 600px;
+
+		.social-media-item {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 420px;
+			
+			.heading-container {
+				
+				.brand-icon {
+					
+					svg {
+						width: 2rem;
+						height: 2rem;
+						fill: @backgroundColor;
+					}
+				}
+
+				.title-container {
+
+					h4 {
+						font-family: 'Francois One', Arial, Helvetica, sans-serif;
+						font-size: 22px;
+						line-height: 1.75rem;
+						color: @backgroundColor;
+					}
+				}
+			}
+
+			.timestamp-container {
+
+				p {
+					font-family: 'Francois One', Arial, Helvetica, sans-serif;
+					font-size: 14px;
+					line-height: 1rem;
+					color: @backgroundColor;
+					letter-spacing: 0.05rem;
+					display: inline; //baseline
+				}
+			}
+			
+			&:hover {
+				background-color: red !important;
+				cursor: pointer;
+
+				.heading-container {
+					
+					.brand-icon {
+						
+						svg {
+							fill: white;
+						}
+					}
+
+					.title-container {
+
+						h4 {
+							color: white;
+						}	
+					}
+				}
+
+				.timestamp-container {
+
+					p {
+						color: white;
+					}
+				}
+			}
+		}
+
+		.social-media-card-bg-orange {
+			background-color: @badge-orange !important;
+
+			.heading-container {
+
+				.brand-icon {
+
+					svg {
+						fill: white;
+					}
+				}
+
+				.title-container {
+
+					h4 {
+						color: white;
+					}
+				}
+			}
+
+			.timestamp-container {
+
+				p {
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+// Volunteer with Sign Up Fields
+.section-10 {
+	background-color: white;
+	overflow: hidden;
+
+	.content-container {
+
+		.heading-container {
+			text-align: center;
+			color: @backgroundColor;
+			font-family: "Francois One", Arial, Helvetica, sans-serif;
+
+			h2 {
+				font-size: 72px;
+
+				span {
+					font-size: 22px;
+					font-weight: 600;
+					font-family: "Montserrat", Arial, Helvetica, sans-serif;
+					letter-spacing: 0.25rem;
+					text-transform: uppercase;
+					margin-bottom: -7px;
+					display: block;
+				}
+			}
+		}
+
+		.sign-up-container {
+			margin-bottom: 1rem !important;
+	
+			.form-control {
+				background-color: rgba(162, 216, 236, 0.34);
+				height: 4rem !important;
+			}
+		
+			::placeholder {
+				font-size: 22px !important;
+			}
+		
+			.cta-button {
+
+				.btn {
+
+					&:hover {
+						min-width: 350px;
+						transition: all 500ms cubic-bezier(.68,-0.55,.27,1.55);
+
+						svg {
+							transform: none; //remove default component animation
+						}
+					}
+
+					.badge {
+						padding: 2.125rem 2rem;
+						font-size: 20px;
+						justify-content: space-around;
+					}
+				}
+			}
+		}
+	
+		.sub-section {
+			font-size: 12px;
+			line-height: 1.25rem;
+			text-align: center;
+			font-family: "Montserrat", Arial, Helvetica, sans-serif;
+			width: 85% !important;
+			padding: 0 2rem;
+		}
+	}
+}
+
+// Photo with Fixed Height: Change Object Position for Art Direction
+.section-11 {
+
+	.image-container {
+
+		.image {
+
+			img {
+				object-position: 50% 50%;
+			}
+		}
+	}
+}
+
+// Footer
+.section-12 {
+	padding-top: 1rem;
+
+	.content-container {
+		display: flex;
+		flex-direction: column;
+		padding: 3rem 2rem;
+
+		// Logo
+		.heading-container {
+			width: 100%;
+			max-width: 350px;
+			align-self: center;
+			padding: 3rem 0;
+		}
+
+		.links-container {
+			display: flex;
+			justify-content: center;
+			padding: 1.5rem 0 1.5rem 0;
+			max-width: 500px;
+			align-self: center;
+
+			ul {
+				list-style: none;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: center;
+				margin: 0 0 0 0;
+				padding: 0 0 0 0;
+
+				li {
+					padding: 0.35rem 1rem;
+
+					a {
+						font-family: "Francois One", Arial, Helvetica, sans-serif;
+						font-size: 22px;
+						color: #B9ECFF;
+					}
+				}
+			}
+		}
+
+		// Paid For By
+		.mid-section {
+			padding: 2rem 0;
+			max-width: 500px;
+			align-self: center;
+
+			.text-container {
+				border: 2px solid #B9ECFF;
+				padding: 0.5rem 1rem;
+
+				p {
+					margin: 0 0 0 0;
+					text-align: center;
+					font-family: "Francois One", Arial, Helvetica, sans-serif;
+					text-transform: uppercase;
+					color: #A2D8EC;
+					font-size: 14px;
+					letter-spacing: 0.15rem;
+					line-height: 1.5rem;
+				}
+			}
+		}
+
+		// Address
+		.sub-section {
+			text-align: center;
+			padding: 2rem;
+
+			address {
+				margin: 0 0 0 0;
+
+				a {
+					color: white;
+					font-family: "Francois One", Arial, Helvetica, sans-serif;
+					font-size: 18px;
+				}
+			}
+		}
+
+		// Social Media Icons
+		.social-media-icons-container {
+			padding: 2rem 0;
+
+			ul {
+				margin: 0 0 0 0;
+
+				li {
+					padding: 1rem 2rem;
+
+					svg {
+						transform: scale(2);
+					}	
+				}
+			}
+		}
+	}
+	
+	.tag {
+		text-align: center;
+		margin-top: 150px;
+
+		p {
+			color: rgba(255, 255, 255, 0.5);
+			font-family: "Francois One", Arial, Helvetica, sans-serif;
+			font-size: 18px;
+		}
+
+	}
+
+}
+
+// Video Modal
+#videoModal.modal {
+	left: 50% !important;
+	transform: translate3d(-50%, 0, 0);
+
+	.modal-dialog {
+		margin: 0 auto;
+
+		.modal-content {
+			border: none;
+			background: transparent;
+			border-radius: 0;
+			height: 100%;
+			width: 100%;
+
+			.heading-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 0 2rem 0;
+				text-align: center;
+				
+				h4 {
+					font-size: 24px;
+					color: #fff;
+					font-family: "Francois One", Arial, Helvetica, sans-serif;
+				}
+			}
+
+			.close {
+				text-shadow: none;
+				color: @backgroundColor;
+				font-size: 2.5rem;
+				padding: 2rem 0;
+				opacity: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				div {
+					
+					&:hover {
+						transform: scale(1.5);
+						transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+					}
+				}
+			}
+
+			.btn-primary:hover {
+				border-color: transparent;
+				background-color: transparent;
+			}
+
+			.embed-responsive {
+				width: 80%;
+				margin: 0 auto 2rem auto;
+
+				.embed-responsive-item {
+					border: 5px solid @backgroundColor;
+				}
+			}
+		}
+	}
+}
+
+//Modal Background Injected Before Body End
+.modal-backdrop.show {
+	opacity: 0.9;
+	border: 10px solid @backgroundColor;
+	background: @bodyColor;
+
+	@media (max-width: 400px) {
+		border-width: 5px;
+	}
+
+	@media (min-width: 401px) and (max-width: 750px) {
+		border-width: 7px;
+	}
+}
+
+// Tablet:
+// 768px - 1180px
+
+@media (min-width: 768px) {
+
+	.tablet-element {
+		display: block;
+	}
+
+	@inputFieldHeight: 4rem;
+
+	// Navbar / Modal Navigation
+	.section-0 {
+
+		.main-nav-container {
+			width: 100%;
+		}
+
+		.nav-donate {
+			max-width: 230px;
+		}
+
+		// Hide Hamburger Menu
+		// Switch To Inline Navigation
+		@media (min-width: 1025px) {
+
+			.main-nav-container { 
+				
+				> .btn {
+					display: none;
+				}
+
+				.inline-navigation {
+					display: block;
+
+					.navbar-nav {
+						width: 500px;
+						flex-direction: row;
+						justify-content: space-around;
+						padding-right: 1rem;
+						
+						.nav-item {
+							line-height: 1rem;
+							
+							.nav-link {
+								font-size: 14px;
+								font-family: "Francois One", Arial, Helvetica, sans-serif;
+								font-weight: normal;
+								text-transform: uppercase;
+								color: white;
+							}
+
+							.disabled {
+								opacity: 0.5;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Jumbotron / Sign Up Fields
+	.section-1 {
+		min-width: 100%;
+		height: 644px;
+		background-color: @badge-orange;
+		display: grid;
+		grid-template-columns: 3rem 1fr 1fr 3rem;
+		grid-template-rows: 3rem 1fr 1fr 3rem;
+		justify-items: center;
+		background-image: url('images/jumbotron/med-@2x.jpg');
+		background-position: 30% 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		> .content-container {
+				grid-column: 2 / span 1;
+				grid-row: 2 / span 2;
+				height: 100%;
+				max-width: 360px;
+
+			.main-image-container {
+				display: none;
+			}
+
+			.sub-section {
+				width: 100%;
+			}
+
+			.sign-up-container {
+				margin: 2vw 0;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+
+				.content-container {
+					flex-flow: row wrap;
+					justify-content: space-between;
+					align-items: flex-start;
+
+						> :nth-child(2) {
+							width: 65%;
+							min-width: 0;
+						}
+
+					.input-group {
+
+						.form-control {
+							height: @inputFieldHeight;
+							transition: all 200ms linear;
+
+							&:hover {
+								padding-left: 25px;
+							}
+						
+							&:focus {
+								transform: scale(1.05);
+								box-shadow: 0 0 0 0.2rem rgba(63, 181, 224, 0.5);
+							}
+						}
+					}
+
+					.cta-button {
+						width: calc(35% - 0.5rem);
+						margin-left: 0.5rem;
+						height: @inputFieldHeight;
+						background-color: @backgroundColor;
+
+						.btn {
+							min-width: 0;
+							padding: 0 0 0 0;
+								
+							.badge {
+								color: #fff;
+							}
+						}
+					}
+
+					.tablet-element {
+						display: flex;
+
+						&:hover {
+							background-color: @newsColor;
+						}
+					}
+				}
+
+
+				.mobile-element,
+				.large-element {
+					display: none;
+				}
+			}
+
+			> .tablet-element {
+				 
+				p {
+					font-size: 10px;
+					text-align: center;
+					width: 90%;
+					margin: 0 auto;
+					color: rgba(0,0,0,0.5);
+				}
+			}
+		}
+
+		.popup-container {
+			background-color: @backgroundColor;
+			width: 420px;
+			height: 140px;
+			grid-column: 1;
+			grid-row: 4;
+			justify-self: flex-start;
+			z-index: 1;
+			border: 5px solid @backgroundColor;
+			border-left: none;
+			transition: all 750ms cubic-bezier(.68,-0.55,.27,1.55);
+
+			&:hover {
+				cursor: pointer;
+				background-color: #fff;
+				border: 5px solid @backgroundColor;
+				border-left: none;
+
+				.content-container {
+
+					h6 {
+						color: @backgroundColor;
+					}
+
+					.icon-container {
+						animation: big-shrink 1s 750ms cubic-bezier(.95,.05,.8,.04);
+						
+						@keyframes big-shrink{
+
+							0% {
+								transform: translate(0, -10px);
+							}
+
+							100% {
+								transform: translate(0, 0);
+							}
+
+						}
+
+						svg {
+							animation: shake-top 1s 750ms cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+							fill: @backgroundColor;
+						}
+
+						@keyframes shake-top {
+							0%, 100% {
+									transform: rotate(0deg);
+									transform-origin: 50% 0;
+							}
+					
+							10% {
+									transform: rotate(2deg);
+							}
+					
+							20%, 40%, 60% {
+									transform: rotate(-4deg);
+							}
+					
+							30%, 50%, 70% {
+									transform: rotate(4deg);
+							}
+					
+							80% {
+									transform: rotate(-2deg);
+							}
+					
+							90% {
+									transform: rotate(2deg);
+							}
+						}
+					}
+				}
+			}
+
+			.content-container {
+				display: flex;
+				flex-flow: row nowrap;
+				height: 100%;
+				padding: 0 0 0 3rem;
+
+				h6 {
+					font-family: "Montserrat", Arial, Helvetica, sans-serif;
+					font-size: 30px;
+					font-weight: 600;
+					color: #fff;
+					margin-bottom: 0;
+				}
+
+				.icon-container {
+					align-self: flex-end;
+					padding: 0 1rem 1rem 0;
+					
+					svg {
+						fill: #fff;
+						height: 2rem;
+						width: 2rem;
+					}
+				}
+			}
+		}
+	}
+
+	// Intro / Why I'm Running
+	.section-2 {
+		width: 50%;
+		height: 588px;
+		align-items: flex-start;
+		padding-left: 3rem;
+		padding-right: 0;
+		padding-bottom: 1rem;
+		float: left;
+
+		@media (min-width: 1000px) {
+			padding-right: 3rem;
+		}
+		
+		.content-container {
+			padding-top: 3rem;
+			display: flex;
+			height: 100%;
+			flex-flow: row wrap;
+			align-items: flex-start;
+
+			h1 {
+				font-size: 34px;
+				align-self: flex-end;
+			}
+			
+			p {
+				font-size: 16px;
+			}
+			
+			.cta-button {
+				
+				.btn {
+					
+					.badge {
+						color: #3FB5E0;
+						font-size: 13px;
+						padding: 0.5rem 2rem;
+						border: 2px solid #3FB5E0;
+						
+						svg {
+							fill: #3FB5E0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Watch Video
+	.section-3 {
+		width: 50%;
+		height: 588px;
+		padding: 0 0 0 0;
+		margin: 0 0 0 0;
+		background-color: #fff;
+		align-items: flex-end;
+		
+		.content-container {
+			width: 85%;
+			height: 100%;
+			overflow: visible;
+
+			@media (min-width: 1000px) {
+				width: 100%;
+			}
+
+			.image-container {
+				height: 588px;
+				position: relative;
+				top: 3rem;
+				
+				.image {
+
+					img {
+						height: 100%;
+						min-width: initial;
+					}
+
+					&:after {
+						background-image: linear-gradient(to bottom,rgba(63,181,224,0) 50%,rgba(63,181,224,0.75) 100%);
+					}
+				}
+			}
+
+			.sub-section {
+				padding: 0 0 0 2rem;
+
+				.play-button {
+
+					svg {
+						width: 120px;
+						height: 120px;
+					}
+				}
+			}
+		}
+	}
+
+	// Donation Buttons
+	.section-4 {
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		padding: 7rem 3rem;
+
+		.content-container {
+			order: 2;
+			margin-left: 3rem;
+			padding-top: 1rem;
+			max-width: 325px;
+
+			h2 {
+				font-size: 32px;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.donate-button-container {
+			order: 1;
+			padding-bottom: 0;
+			max-width: 450px;
+		}
+	}
+
+	// Easy Grid Solution
+	.group-1 {
+		display: grid;
+		grid-template-columns: 50vw 50vw;
+		grid-template-rows: repeat(2, minmax(570px, min-content));
+		background-color: #fff;
+	}
+
+	// Photo with Fixed Height
+	.section-5 {
+		grid-column: 1 / span 1;
+		grid-row: 1 / span 1;
+
+		.image-container {
+			background-image: url('images/kaleb/kaleb-sm-@2x.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			height: 100%;
+	
+			.image {
+				display: none;
+			}
+		}
+	}
+
+	// News and Press
+	.section-6 {
+		grid-column: 2 / span 1;
+		grid-row: 1 / span 1;
+		align-self: center;
+		
+		.content-container {
+			padding-top: 2rem;
+			max-width: 400px;
+
+			.heading {
+
+				h2 {
+					font-size: 28px;
+				}
+			}
+		}
+
+		.news-feed-container {
+
+      .news-item {
+				padding: 1rem 0;
+
+        .date {
+          font-size: 10px !important;
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+
+        h4 {
+					font-size: 14px;
+					margin-bottom: 0;
+        }
+
+				&:last-child {
+					border: none;
+				}
+      }
+    }
+	}
+
+	// Photos with Fixed Height
+	.section-7 {
+		grid-column: 2 / span 1;
+		grid-row: 2 / span 1;
+
+		.image-container {
+			background-image: url('images/incumbent/incumbent-sm-@2x.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			height: 100%;
+	
+			.image {
+				display: none;
+			}
+		}
+	}
+
+	// Volunteer Today
+	.section-8 {
+		grid-column: 1 / span 1;
+		grid-row: 2 / span 1;
+		padding: 4.5rem 3rem 1rem 3rem;
+
+		.content-container {
+			height: 90%;
+			display: flex;
+			flex-flow: row wrap;
+			align-items: space-between;
+
+			.section-container {
+				display: flex;
+				flex-flow: column wrap;
+				align-items: flex-start;
+				justify-content: flex-start;
+				max-width: 450px;
+
+				h1 {
+					font-size: 34px;
+				}
+	
+				p {
+					font-size: 16px;
+				}
+			}
+		}
+
+		.cta-button {
+
+			.btn {
+
+				.badge {
+					color: #3FB5E0;
+					font-size: 13px;
+					padding: 0.5rem 2rem;
+					border: 2px solid #3FB5E0;
+
+					svg {
+						fill: #3FB5E0;
+					}
+				}
+			}
+		}
+	}
+
+	// The Latest / Twitter Feed
+	.section-9 {
+		display: flex;
+		flex-flow: row nowrap;
+
+		.content-container {
+			min-width: 260px;
+			max-width: 400px;
+			margin-top: 1.5rem;
+			margin-right: 2rem;
+
+			@media (min-width: 900px) {
+				margin-right: 4rem;
+			}
+
+			h1 {
+				font-size: 35px;
+				font-weight: 600;
+			}
+
+			p {
+				font-size: 17px;
+			}
+
+			.cta-button {
+				margin-top: 2rem;
+
+				.btn {
+
+					.badge {
+						font-size: 14px;
+						font-weight: 600;
+						padding: 1.45rem 1.5rem;
+					}
+				}
+			}
+		}
+
+		.social-media-feed-container {
+			display: flex;
+			flex-wrap: nowrap;
+			width: max-content;
+
+			.social-media-item {
+				width: 218px;
+				display: flex;
+				height: inherit;
+
+				&:first-child {
+					margin-right: 1rem;
+				}
+				
+				.heading-container {
+					
+					.brand-icon {
+						margin: 0 0 0 0 !important;
+
+						svg {
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
+
+					.title-container {
+
+						h4 {
+							font-size: 18px;
+							line-height: 26px;
+						}
+					}
+				}
+
+				.timestamp-container {
+
+					p {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+
+	// Group Sections 10 + 11
+	.group-2 {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: flex-end;
+		background-color: #FFF;
+		height: 572px;
+	}
+
+	// Volunteer with Sign Up Fields
+	.section-10 {
+		margin: 0 0 0 0;
+		padding: 0 2rem !important;
+		height: 572px;
+		display: flex;
+		align-items: center;
+		
+		> .content-container {
+			width: 400px;
+			display: block;
+			margin: 0 0 0 0 !important;
+
+			.heading-container {
+
+				h2 {
+					font-size: 47px;
+
+					span {
+						font-size: 18px;
+					}
+				}
+			}
+
+			.sign-up-container {
+				width: 100%;
+				margin-top: 1rem !important;
+
+				.content-container {
+					
+					.input-group {
+						min-width: 260px;
+						max-width: 260px;
+
+						.form-control {
+							height: 3rem !important;
+						}
+			
+						::placeholder {
+							font-size: 14px !important;
+						}
+					}
+					
+					.cta-button {
+
+						.btn {
+							min-width: 244px;
+
+							&:hover {
+								min-width: 300px;
+								transition: all 500ms cubic-bezier(.68,-0.55,.27,1.55);
+								
+								.badge {
+									
+									svg {
+										margin-left: 25px;
+									}
+								}
+							}
+
+							.badge {
+								font-size: 19px;
+								height: 52px !important;
+								padding: 0 0 0 0 !important;
+								justify-content: center;
+
+								svg {
+									margin-left: 7px;
+									width: 1.75rem;
+									height: 1.75rem;
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			.sub-section {
+				max-width: 285px;
+				margin: 0 auto !important;
+				padding: 0 0 0 0;
+
+				p {
+					font-size: 10px;
+					line-height: 1rem;
+				}
+			}
+		}
+	}
+
+	// Photo with Fixed Height
+	.section-11 {
+		flex-grow: 1;
+
+		.image-container {
+
+			.image {
+				min-width: 368px;
+				height: 540px;
+				display: block;
+				background-image: url('images/volunteer/volunteer-tablet-@2x.png');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 0% 50%;
+
+				img {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// Footer
+	.section-12 {
+
+		.content-container {
+
+			.links-container {
+				max-width: 100%;
+			}
+		}
+	}
+} // –––––––––– Tablet Media Query
+
+// Large:
+// 1180-Infinity
+
+@media (min-width: 1181px) {
+
+	.section-0 {
+
+		
+
+	}
+
+	// Jumbotron / Sign Up Fields
+	.section-1 {
+		background-image: none;
+		height: 800px;
+
+		.large-image-container {
+			display: block;
+			grid-column: 1 / span 4;
+			grid-row: 1 / span 4;
+			min-width: calc(1181px - 20px);
+			background-image: url('images/jumbotron/lg-@2x.jpg');
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 124% 50%;
+		}
+
+		.large-gradient-container {
+			display: block;
+			width: 100%;
+			height: 800px;
+			grid-column: 1 / span 4;
+			grid-row: 1 / span 4;
+			background-image: linear-gradient(to bottom, rgba(63,181,224,0) 0%,rgba(63,181,224,0.14) 50%,rgba(63,181,224,1) 95%);
+		}
+
+		.sub-section {
+			width: 150% !important;
+		}
+
+		.popup-container {
+			background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.5) 100%);
+		}
+	}
+
+	.section-2 {
+		align-items: center;
+	}
+
+	.section-4 {
+		padding-top: 12rem;
+		padding-bottom: 12rem;
+	}
+
+	.section-9 {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+
+	.section-10 {
+		flex-grow: 1;
+		justify-content: center;
+	}
+} // –––––––––– Large Media Query
